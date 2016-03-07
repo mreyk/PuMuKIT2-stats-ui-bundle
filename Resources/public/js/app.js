@@ -12,15 +12,25 @@ angular.module('app').config(function($routeProvider, $locationProvider) {
       controller: 'PMKController',
       controllerAs: 'pmkCtrl'
   };
+
+      
   $routeProvider
     .when('/', route)
     .when('/admin/stats/objects', route)
     .when('/admin/stats/objects/:id', route)
-    .when('/admin/stats/series', route)
+    .when('/admin/stats/series', { 
+      templateUrl: window.pmk.template + 'stats_series_general.html',
+      controller: 'SeriesGeneralController',
+      controllerAs: 'pmkCtrl'
+    })
     .when('/admin/stats/series/:id', route)
     .when('/app_dev.php/admin/stats/objects', route)
     .when('/app_dev.php/admin/stats/objects/:id', route)
-    .when('/app_dev.php/admin/stats/series', route)
+    .when('/app_dev.php/admin/stats/series', { 
+      templateUrl: window.pmk.template + 'stats_series_general.html',
+      controller: 'SeriesGeneralController',
+      controllerAs: 'pmkCtrl'
+    })
     .when('/app_dev.php/admin/stats/series/:id', route)
     .otherwise({ redirectTo: '/'});
 });
